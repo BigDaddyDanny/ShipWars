@@ -13,7 +13,7 @@ public class Resources {
 		images = new HashMap<String, Image>();
 		
 		try {
-			images.put("space_background1", new Image("resources/space_background.png"));
+			images.put("space_background1", loadImage("resources/space_background.png"));
 			
 		} catch (SlickException e) {
 			e.printStackTrace();
