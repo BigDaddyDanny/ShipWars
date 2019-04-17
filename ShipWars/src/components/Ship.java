@@ -10,20 +10,16 @@ import org.newdawn.slick.Image;
 public class Ship {
 	
 	private int health;
-	private int shield;
 	private Image sprite;
 	private int x;
 	private int y;
 	
 	private Turret mainTurret;
-	private int mainX;
-	private int mainY;
 	
 	private Engines eng;
-	private int engX;
-	private int engY;
 		
-	private Shield 
+	private Shield shield;
+	
 	public Ship() {
 		
 		
@@ -46,7 +42,12 @@ public class Ship {
 	}
 	
 	public void damage(int dmg) {
-		if()
+		if(shield.getHealth() <= 0) {
+			
+		}else {
+			shield.damage(dmg);
+		}
+		
 	}
 
 	
