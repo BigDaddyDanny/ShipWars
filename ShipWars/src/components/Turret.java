@@ -16,7 +16,10 @@ public class Turret {
 	
 	private double dmg;
 	private double fireChance;
-	
+	/*
+	 * @param fc should be between 0 - 1 with 1 being 100% chance of fire
+	 * 
+	 */
 	public Turret(Image s, int x, int y, double d, double fc) {
 		
 		sprite = s;

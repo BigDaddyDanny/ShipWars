@@ -9,8 +9,10 @@ public class Engines {
 	private Image sprite;
 	private int x;
 	private int y;
-	
-	public Engines(Image s, double dc, int x, int y) {
+	/*
+	 * @param dc should be number between 0 - 1 where 1 represents 100% chance to dodge
+	 */
+	public Engines(Image s, int x, int y, double dc) {
 		sprite = s;
 		dodgeChance = dc;
 		

@@ -6,7 +6,14 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import components.Ship;
+
 public class Game extends BasicGameState{
+	
+	private Ship left;
+	private Ship right;
+	
+	
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
@@ -25,7 +32,7 @@ public class Game extends BasicGameState{
 
 	@Override
 	public int getID() {
-		return 0;
+		return States.GAME;
 	}
 
 }

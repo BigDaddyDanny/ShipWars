@@ -8,19 +8,22 @@ import org.newdawn.slick.Image;
 
 public class Shield {
 	
+	private int maxHealth;
 	private int health;
 	private double rechargeRate;
 	private int x;
 	private int y;
 	private Image sprite;
 	
-	public Shield(Image s, int x, int y, double recharge) {
+	public Shield(Image s, int x, int y, int h, double recharge) {
 		this.x = x;
 		this.y = y;
 		sprite = s;
 		rechargeRate = recharge;
 		
-		health = 100;
+		maxHealth = h;
+		health = maxHealth;
+		
 	}
 	
 	public void render(Graphics g) {

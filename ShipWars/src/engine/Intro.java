@@ -6,7 +6,10 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.Transition;
+import org.newdawn.slick.tests.TransitionTest;
 
 public class Intro extends BasicGameState{
 	
@@ -28,7 +31,9 @@ public class Intro extends BasicGameState{
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int arg2) throws SlickException {
-		
+		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){
+			s.enterState(States.SELECTION);
+		}
 	}
 
 	@Override
