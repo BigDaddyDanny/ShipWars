@@ -7,6 +7,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import components.Engines;
+import components.Hull;
 import components.Shield;
 import components.Turret;
 
@@ -18,6 +19,8 @@ public class Selection extends BasicGameState{
 	private static final int SHIELD_Y = 20;
 	private static final int ENGINE_X = 30;
 	private static final int ENGINE_Y = 30;
+	private static final int HULL_X = 40;
+	private static final int HULL_Y = 40;
 	
 	//list of types of turrets
 	Turret[] turrets = { new Turret(Resources.getImage("example_turret1"), TURRET_X, TURRET_Y, 5, 2),
@@ -33,6 +36,15 @@ public class Selection extends BasicGameState{
 			
 	};
 	
+	Hull[] hulls = {	new Hull(Resources.getImage("example_engines1"), HULL_X, HULL_Y, 100)
+			
+	};
+	
+	private int turretCounter = 0;
+	private int shieldCounter = 0;
+	private int engineCounter = 0;
+	private int hullCounter = 0;
+	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
 		
@@ -40,6 +52,11 @@ public class Selection extends BasicGameState{
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
+		
+		turrets[turretCounter].render(g);
+		shields[shieldCounter].render(g);
+		engines[engineCounter].render(g);
+		hulls[hullCounter].render(g);
 		
 	}
 

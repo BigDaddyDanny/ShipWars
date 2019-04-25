@@ -10,24 +10,17 @@ import org.newdawn.slick.Image;
 
 public class Ship {
 	
-	private String name;
-	private int health;
-	private Image sprite;
-	private int x;
-	private int y;
-	
 	private Turret mainTurret;
 	
 	private Engines eng;
 		
 	private Shield shield;
 	
-	public Ship(Image s, int x, int y, String n, Turret main, Engines e, Shield sh) {
+	private Hull hull;
+	
+	public Ship(Image s, int x, int y, String n, Turret main, Engines e, Shield sh, Hull h) {
 		
-		health = 100;
-		this.x = x;
-		this.y = y;
-		name = n;
+		hull = h;
 		mainTurret = main;
 		eng = e;
 		shield = sh;
@@ -35,11 +28,11 @@ public class Ship {
 	}
 	
 	public void render(Graphics g) {
-		sprite.drawCentered(x, y);
 		
 		mainTurret.render(g);
 		eng.render(g);
 		shield.render(g);
+		hull.render(g);
 		
 	}
 	
@@ -48,13 +41,12 @@ public class Ship {
 	}
 	
 	public void damage(int dmg) {
+		
 		if(shield.getHealth() <= 0) {
-			health -= dmg;
+			hull.damage(dmg);
 		}else {
 			shield.damage(dmg);
 		}
 		
-	}
-
-	
+	}	
 }

@@ -7,7 +7,7 @@ import org.newdawn.slick.SlickException;
 
 public class Resources {
 	
-	private static Map<String, Image> images;
+	private static HashMap<String, Image> images;
 	
 	Resources(){
 		images = new HashMap<String, Image>();

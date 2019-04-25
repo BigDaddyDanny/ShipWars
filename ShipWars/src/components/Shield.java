@@ -6,7 +6,7 @@ import org.newdawn.slick.Image;
  * - should, in the future, implement way to render the shield on the screen
  */
 
-public class Shield {
+public class Shield implements Sprite{
 	
 	private int maxHealth;
 	private int health;
