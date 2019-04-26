@@ -9,12 +9,12 @@ public class Resources {
 	
 	private static HashMap<String, Image> images;
 	
-	Resources(){
+	public Resources(){
 		images = new HashMap<String, Image>();
 		
 		try {
-			images.put("space_background1", loadImage("resources/space_background.png"));
-			
+			images.put("SpaceBackground1", loadImage("resources/space_background.png"));
+			images.put("BioBoomer", loadImage("resources/turrets/BioBoomer.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
