@@ -10,11 +10,9 @@ import components.Ship;
 
 public class Game extends BasicGameState{
 	
-	private Ship left;
-	private Ship right;
+	private Ship playerOne;
+	private Ship playerTwo;
 	
-	
-
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
 		
@@ -28,6 +26,16 @@ public class Game extends BasicGameState{
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 		
+		
+		
+	}
+	
+	public void setShip(Ship ship) {
+		if(playerOne == null) {
+			playerOne = ship;
+		}else if(playerTwo == null){
+			playerTwo = ship;
+		}
 	}
 
 	@Override

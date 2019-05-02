@@ -12,7 +12,7 @@ public class Engine extends StateBasedGame{
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private static int height = 480;
     private static int width = 640;
-    private static boolean isFullscreen = false;
+    private static boolean isFullscreen = true;
     
     public Engine(){
         super("Ship Wars");
@@ -51,6 +51,8 @@ public class Engine extends StateBasedGame{
         new Resources();
         
         addState(new Intro());
+        addState(new Game());
+        addState(new Selection());
 	}
 	
 	public static int getHeight() {

@@ -18,7 +18,7 @@ public class Ship {
 	
 	private Hull hull;
 	
-	public Ship(Image s, int x, int y, String n, Turret main, Engines e, Shield sh, Hull h) {
+	public Ship(String n, Turret main, Engines e, Shield sh, Hull h) {
 		
 		hull = h;
 		mainTurret = main;
@@ -49,4 +49,9 @@ public class Ship {
 		}
 		
 	}	
+	
+	public void setCoords(int x, int y) {
+		
+	}
+	
 }

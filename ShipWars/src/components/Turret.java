@@ -8,39 +8,31 @@ import org.newdawn.slick.Image;
  * 		fireChance which the bullet needs
  */
 
-public class Turret implements Sprite{
-	
-	private Image sprite;
-	private int x;
-	private int y;
+public class Turret extends Component{
 	
 	private int angle;
 	
 	private double dmg;
 	private double fireChance;
+	
 	/*
 	 * @param fc should be between 0 - 1 with 1 being 100% chance of fire
 	 * 
 	 */
-	public Turret(Image s, int x, int y, double d, double fc) {
+	public Turret(Image s, String n, int x, int y, double d, double fc) {
+		super(s, n, x, y);
 		
-		sprite = s;
-		this.x = x;
-		this.y = y;
+	
 		dmg = d;
 		fireChance = fc;
 		angle = 0;
 		
 	}
 	
-	public void render(Graphics g) {
-		
-		sprite.drawCentered(x, y);
-		
-	}
-	
 	public void update() {
 				
+		sprite.setRotation(angle);
+		
 	}
 
 }

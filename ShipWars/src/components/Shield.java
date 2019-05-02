@@ -6,21 +6,16 @@ import org.newdawn.slick.Image;
  * - should, in the future, implement way to render the shield on the screen
  */
 
-public class Shield implements Sprite{
+public class Shield extends Component{
 	
 	private int maxHealth;
 	private int health;
 	private double rechargeRate;
-	private int x;
-	private int y;
-	private Image sprite;
 	
-	public Shield(Image s, int x, int y, int h, double recharge) {
-		this.x = x;
-		this.y = y;
-		sprite = s;
-		rechargeRate = recharge;
+	public Shield(Image s, String n, int x, int y, int h, double recharge) {
+		super(s, n, x, y);
 		
+		rechargeRate = recharge;
 		maxHealth = h;
 		health = maxHealth;
 		
@@ -29,7 +24,7 @@ public class Shield implements Sprite{
 	public void render(Graphics g) {
 		
 		if(health > 0) {
-			sprite.drawCentered(x, y);
+			sprite.draw(getX(), getY());
 		}
 		
 	}

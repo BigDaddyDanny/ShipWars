@@ -2,6 +2,8 @@ package engine;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -13,30 +15,29 @@ import components.Turret;
 
 public class Selection extends BasicGameState{
 	
-	private static final int TURRET_X = 10;
-	private static final int TURRET_Y = 10;
-	private static final int SHIELD_X = 20;
+	private final Image background = Resources.getImage("SpaceBackground1");
+	private static final int TURRET_X = 800;
+	private static final int TURRET_Y = 900;
+	private static final int SHIELD_X = 1400;
 	private static final int SHIELD_Y = 20;
-	private static final int ENGINE_X = 30;
-	private static final int ENGINE_Y = 30;
-	private static final int HULL_X = 40;
-	private static final int HULL_Y = 40;
+	private static final int ENGINE_X = 650;
+	private static final int ENGINE_Y = 20;
+	private static final int HULL_X = 0;
+	private static final int HULL_Y = 20;
 	
 	//list of types of turrets
-	Turret[] turrets = { new Turret(Resources.getImage("example_turret1"), TURRET_X, TURRET_Y, 5, 2),
-						new Turret(Resources.getImage("example_turret2"), TURRET_X, TURRET_Y, 1, .25)
+	Turret[] turrets = { new Turret(Resources.getImage("BioBoomer"), "Bio Boomer", TURRET_X, TURRET_Y, 5, 2),
 	};
 	
-	Shield[] shields = {new Shield(Resources.getImage("example_shield1"), SHIELD_X, SHIELD_Y, 100, .2),
-						new Shield(Resources.getImage("example_shield1"), SHIELD_X, SHIELD_Y, 20, 1)
+	Shield[] shields = {new Shield(Resources.getImage("ExampleShield"), "Example Shield", SHIELD_X, SHIELD_Y, 100, .2),
 			
 	};
 	
-	Engines[] engines = { new Engines(Resources.getImage("example_engines1"), ENGINE_X, ENGINE_Y, .5)
+	Engines[] engines = { new Engines(Resources.getImage("ExampleEngine"), "Example Engine", ENGINE_X, ENGINE_Y, .5)
 			
 	};
 	
-	Hull[] hulls = {	new Hull(Resources.getImage("example_engines1"), HULL_X, HULL_Y, 100)
+	Hull[] hulls = {	new Hull(Resources.getImage("ExampleHull"), "Example Engine", HULL_X, HULL_Y, 100)
 			
 	};
 	
@@ -53,7 +54,8 @@ public class Selection extends BasicGameState{
 	@Override
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		
-		turrets[turretCounter].render(g);
+		background.draw();
+		turrets[turretCounter].getSprite().draw(turrets[turretCounter].getX(), turrets[turretCounter].getY(), 3);
 		shields[shieldCounter].render(g);
 		engines[engineCounter].render(g);
 		hulls[hullCounter].render(g);
@@ -62,6 +64,10 @@ public class Selection extends BasicGameState{
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int arg2) throws SlickException {
+		
+		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){
+			s.enterState(States.SELECTION);
+		}
 		
 	}
 

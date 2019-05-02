@@ -13,7 +13,7 @@ import org.newdawn.slick.tests.TransitionTest;
 
 public class Intro extends BasicGameState{
 	
-	private final Image background = Resources.getImage("space_background1");
+	private final Image background = Resources.getImage("SpaceBackground1");
 	private final String GREETING = "Press Enter To Begin";
 
 	@Override

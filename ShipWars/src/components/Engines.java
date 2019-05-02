@@ -3,25 +3,17 @@ package components;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
-public class Engines {
+public class Engines extends Component{
 	
 	private double dodgeChance;
-	private Image sprite;
-	private int x;
-	private int y;
+	
 	/*
 	 * @param dc should be number between 0 - 1 where 1 represents 100% chance to dodge
 	 */
-	public Engines(Image s, int x, int y, double dc) {
-		sprite = s;
-		dodgeChance = dc;
+	public Engines(Image s, String n, int x, int y, double dc) {
+		super(s, n, x, y);
 		
-		this.x = x;
-		this.y = y;
-	}
-	
-	public void render(Graphics g) {
-		sprite.drawCentered(x, y);
+		dodgeChance = dc;
 	}
 	
 	public void update() {
