@@ -44,5 +44,13 @@ public class Shield extends Component{
 	public int getHealth() {
 		return health;
 	}
+	
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+	
+	public double getRecharge() {
+		return rechargeRate;
+	}
 
 }

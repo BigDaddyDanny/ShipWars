@@ -20,7 +20,7 @@ public class Engine extends StateBasedGame{
 
     public static void main(String [] args){
         try{
-        	//randomComment
+        	
             AppGameContainer app = new AppGameContainer(new Engine());
             if(isFullscreen) {
             	app.setDisplayMode(screenSize.width, screenSize.height, false);

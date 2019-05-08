@@ -1,6 +1,5 @@
 package components;
 
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 public class Hull extends Component{
@@ -31,6 +30,10 @@ public class Hull extends Component{
 	
 	public int getHealth() {
 		return health;
+	}
+	
+	public int getMaxHealth() {
+		return maxHealth;
 	}
 
 }

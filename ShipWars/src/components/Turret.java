@@ -1,6 +1,5 @@
 package components;
 
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 /*
@@ -33,6 +32,14 @@ public class Turret extends Component{
 				
 		sprite.setRotation(angle);
 		
+	}
+	
+	public double getDmg() {
+		return dmg;
+	}
+	
+	public double getFire() {
+		return fireChance;
 	}
 
 }

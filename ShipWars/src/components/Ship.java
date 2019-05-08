@@ -1,5 +1,6 @@
 package components;
 
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
@@ -10,6 +11,8 @@ import org.newdawn.slick.Image;
 
 public class Ship {
 	
+	private Player[] players;
+	
 	private Turret mainTurret;
 	
 	private Engines eng;
@@ -18,12 +21,13 @@ public class Ship {
 	
 	private Hull hull;
 	
-	public Ship(String n, Turret main, Engines e, Shield sh, Hull h) {
+	public Ship(String n, Turret main, Engines e, Shield sh, Hull h, Player[] p) {
 		
 		hull = h;
 		mainTurret = main;
 		eng = e;
 		shield = sh;
+		players = p;
 		
 	}
 	
@@ -33,11 +37,20 @@ public class Ship {
 		eng.render(g);
 		shield.render(g);
 		hull.render(g);
+		for(Player p : players) {
+			p.render(g);
+		}
 		
 	}
 	
-	public void update() {
-		
+	public void update(GameContainer gc) {
+		mainTurret.update();
+		eng.update();
+		shield.update();
+		hull.update();
+		for(Player p : players) {
+			p.update(gc);
+		}
 	}
 	
 	public void damage(int dmg) {
