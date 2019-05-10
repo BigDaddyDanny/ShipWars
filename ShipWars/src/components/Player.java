@@ -7,15 +7,19 @@ import org.newdawn.slick.Input;
 
 /*
  * - ideally should take care of controls, character movement and actions
+ * 
  */
 
 public class Player {
 
 	private static final int SPEED = 2;
+	private static int nextPlayerNumber = 1;
 	
 	private int x;
 	private int y;
 	private Image sprite;
+	
+	private int playerNumber;
 	
 	public Player(int startX, int startY, Image s) {
 		
@@ -23,38 +27,45 @@ public class Player {
 		 y = startY;
 		 sprite = s;
 		 
+		 playerNumber = nextPlayerNumber;
+		 nextPlayerNumber++;
+		 
 	}
 	
 	
 	public void update(GameContainer gc) {
 		
-		int changeX = 0;
-		int changeY = 0;
+		if(playerNumber == 1) {//testing purposes only
+			
+			int changeX = 0;
+			int changeY = 0;
+			
+			if(gc.getInput().isKeyPressed(Input.KEY_UP)) {
+				changeY -= SPEED;
+			}
+			
+			if(gc.getInput().isKeyPressed(Input.KEY_DOWN)) {
+				changeY += SPEED;
+			}
+			
+			if(gc.getInput().isKeyPressed(Input.KEY_LEFT)){
+				changeX -= SPEED;
+			}
+			
+			if(gc.getInput().isKeyPressed(Input.KEY_RIGHT)) {
+				changeX += SPEED;
+			}
+			
+			x += changeX;
+			y += changeY;
+			
+			x = x < 0 ? 0 : x;
+			y = y < 0 ? 0 : y;
+			
+			x = x > 1920 ? 1920 : x;
+			y = y > 1080 ? 1080 : x;
 		
-		if(gc.getInput().isKeyPressed(Input.KEY_UP)) {
-			changeY -= SPEED;
 		}
-		
-		if(gc.getInput().isKeyPressed(Input.KEY_DOWN)) {
-			changeY += SPEED;
-		}
-		
-		if(gc.getInput().isKeyPressed(Input.KEY_LEFT)){
-			changeX -= SPEED;
-		}
-		
-		if(gc.getInput().isKeyPressed(Input.KEY_RIGHT)) {
-			changeX += SPEED;
-		}
-		
-		x += changeX;
-		y += changeY;
-		
-		x = x < 0 ? 0 : x;
-		y = y < 0 ? 0 : y;
-		
-		x = x > 1920 ? 1920 : x;
-		y = y > 1080 ? 1080 : x;
 		
 	}
 	

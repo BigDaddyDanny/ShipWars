@@ -1,18 +1,22 @@
 package components;
 
 import org.newdawn.slick.Image;
+import org.newdawn.slick.geom.Polygon;
 
 public class Hull extends Component{
 	
 	private int maxHealth;
 	private int health;
-
+	private Polygon bounds;
+	private int[] coords;// in x, y format, engines -> shield -> turret
 	
-	public Hull(Image s, String n, int x, int y, int max) {
+	public Hull(Image s, String n, Polygon b, int[] c, int x, int y, int max) {
 		super(s, n, x, y);
 
 		maxHealth = max;
 		health = maxHealth;
+		bounds = b;
+		coords = c;
 		
 	}
 	
@@ -21,7 +25,9 @@ public class Hull extends Component{
 	}
 	
 	public void damage(int dmg){
-		health -= dmg;
+		if(health > 0) {
+			health -= dmg;
+		}
 	}
 	
 	public void heal(int amt) {
@@ -34,6 +40,22 @@ public class Hull extends Component{
 	
 	public int getMaxHealth() {
 		return maxHealth;
+	}
+	
+	public Polygon getBounds() {
+		return bounds;
+	}
+	
+	public int[] getEngineCoords() {
+		return new int[] {coords[0], coords[1]};
+	}
+	
+	public int[] getShieldCoords() {
+		return new int[] {coords[2], coords[3]};
+	}
+	
+	public int[] getTurretCoords() {
+		return new int[] {coords[4], coords[5]};
 	}
 
 }

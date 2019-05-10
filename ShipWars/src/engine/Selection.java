@@ -6,6 +6,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -43,7 +44,7 @@ public class Selection extends BasicGameState{
 			
 	};
 	
-	Hull[] hulls = {	new Hull(Resources.getImage("ExampleHull"), "Example Engine", HULL_X, HULL_Y, 100)
+	Hull[] hulls = {	new Hull(Resources.getImage("ExampleHull"), "Example Engine", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0})., HULL_X, HULL_Y, 100)
 			
 	};
 	
@@ -82,9 +83,9 @@ public class Selection extends BasicGameState{
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int arg2) throws SlickException {
 		
-		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){
-			Player[] p = {new Player()};
-			if(Game.setShip(new Ship( "temp", turrets[turretCounter], engines[engineCounter], shields[shieldCounter], hulls[hullCounter], p) )) {
+		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){//the x and y of every ship component need to be changed from the example ones to the right ones, depending on the hull and side
+			Player[] p = {new Player(Resources.getImage(name))};
+			if(Game.setShip(new Ship( "temp", turrets[turretCounter], engines[engineCounter], shields[shieldCounter], hulls[hullCounter], p))) {
 				s.enterState(States.GAME);
 			}
 		}

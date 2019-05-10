@@ -21,12 +21,12 @@ public class Ship {
 	
 	private Hull hull;
 	
-	public Ship(String n, Turret main, Engines e, Shield sh, Hull h, Player[] p) {
+	public Ship(String n, Turret main, Engines e, Shield s, Hull h, Player[] p) {
 		
-		hull = h;
+		hull = h; 
 		mainTurret = main;
 		eng = e;
-		shield = sh;
+		shield = s;
 		players = p;
 		
 	}
@@ -44,6 +44,7 @@ public class Ship {
 	}
 	
 	public void update(GameContainer gc) {
+		
 		mainTurret.update();
 		eng.update();
 		shield.update();
@@ -51,6 +52,7 @@ public class Ship {
 		for(Player p : players) {
 			p.update(gc);
 		}
+		
 	}
 	
 	public void damage(int dmg) {
@@ -64,6 +66,8 @@ public class Ship {
 	}	
 	
 	public void setCoords(int x, int y) {
+		
+		
 		
 	}
 	

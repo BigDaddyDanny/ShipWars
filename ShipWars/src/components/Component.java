@@ -7,31 +7,36 @@ public abstract class Component {
 
 	protected Image sprite;
 	private String name;
-	private final int X;
-	private final int Y;
+	private int x;
+	private int y;
 	
 	protected Component(Image s, String n, int x, int y) {
 		sprite = s;
 		name = n;
 		
-		this.X = x;
-		this.Y = y;
+		this.x = x;
+		this.y = y;
 	}
 	
 	public void render(Graphics g) {
 		
-		sprite.draw(X, Y);
+		sprite.draw(x, y);
 		
 	}
 	
 	public abstract void update();
 	
+	public void setCoords(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
 	public int getX() {
-		return X;
+		return x;
 	}
 	
 	public int getY() {
-		return Y;
+		return y;
 	}
 	public String getName() {
 		return name;

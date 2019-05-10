@@ -32,8 +32,8 @@ public class Game extends BasicGameState{
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 		
-		playerOne.update();
-		playerTwo.update();
+//		playerOne.update();
+//		playerTwo.update();
 		
 	}
 	
