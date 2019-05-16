@@ -9,6 +9,7 @@ public class Hull extends Component{
 	private int health;
 	private Polygon bounds;
 	private int[] coords;// in x, y format, engines -> shield -> turret
+	//coords needed so place that player can interact with modules is clear
 	
 	public Hull(Image s, String n, Polygon b, int[] c, int x, int y, int max) {
 		super(s, n, x, y);

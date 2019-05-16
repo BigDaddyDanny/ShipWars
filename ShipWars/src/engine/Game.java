@@ -32,17 +32,19 @@ public class Game extends BasicGameState{
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 		
-//		playerOne.update();
-//		playerTwo.update();
+		playerOne.update(gc);
+		playerTwo.update(gc);
 		
 	}
 	
 	public static boolean setShip(Ship ship) {
 		if(playerOne == null) {
 			playerOne = ship;
+//			playerOne.setCoords(0, 0);
 			return false;
 		}else {
 			playerTwo = ship;
+//			playerTwo.setCoords(950, 0);
 			return true;
 		}
 	}

@@ -2,7 +2,6 @@ package components;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 
 /*
  * - possible future subsystems: medbay, oxygen generator, teleporter, clone chamber, reactor core/energy generator
@@ -10,6 +9,7 @@ import org.newdawn.slick.Image;
  */
 
 public class Ship {
+	
 	
 	private Player[] players;
 	
@@ -29,6 +29,15 @@ public class Ship {
 		shield = s;
 		players = p;
 		
+		
+		/*
+		 * Depending on Hull that Ship has, all coords of other components besides hull need to be adjusted so they are in their proper places
+		 * relevant to the hull shape and design
+		 */
+		mainTurret.adjustCoords(hull.getTurretCoords()[0], hull.getTurretCoords()[1]);
+		eng.adjustCoords(hull.getEngineCoords()[0], hull.getEngineCoords()[1]);
+		shield.adjustCoords(hull.getShieldCoords()[0], hull.getShieldCoords()[1]);
+			
 	}
 	
 	public void render(Graphics g) {
@@ -65,9 +74,15 @@ public class Ship {
 		
 	}	
 	
-	public void setCoords(int x, int y) {
+	/*
+	 * method called to adjust the coords of all components at the start of Game state to move playerTwo ship to the right of the screen
+	 */
+	public void adjustCoords(int tx, int ty) {
 		
-		
+		hull.adjustCoords(tx, ty);
+		mainTurret.adjustCoords(tx, ty);
+		eng.adjustCoords(tx, ty);
+		shield.adjustCoords(tx, ty);
 		
 	}
 	

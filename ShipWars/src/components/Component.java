@@ -26,9 +26,9 @@ public abstract class Component {
 	
 	public abstract void update();
 	
-	public void setCoords(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public void adjustCoords(int tx, int ty) {
+		x += tx;
+		y += ty;
 	}
 	
 	public int getX() {

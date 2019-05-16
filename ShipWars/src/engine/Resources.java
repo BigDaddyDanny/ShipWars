@@ -18,6 +18,7 @@ public class Resources {
 			images.put("ExampleHull", loadImage("resources/hulls/ExampleHull.png"));
 			images.put("ExampleShield", loadImage("resources/shields/ExampleShield.png"));
 			images.put("ExampleEngine", loadImage("resources/engines/ExampleEngine.png"));
+			images.put("character1", loadImage("resources/characters/character1.png"));
 			
 		} catch (SlickException e) {
 			e.printStackTrace();
@@ -30,7 +31,7 @@ public class Resources {
 	}
 	
 	public static Image getImage(String name) {
-		return images.get(name);
+		return images.get(name).copy();
 	}
 
 }
