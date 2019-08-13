@@ -16,6 +16,7 @@ public abstract class Component {
 		
 		this.x = x;
 		this.y = y;
+		
 	}
 	
 	public void render(Graphics g) {
