@@ -8,7 +8,9 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import components.Ship;
-
+/*
+ * 
+ */
 public class Game extends BasicGameState{
 	
 	private static final Image BACKGROUND = Resources.getImage("SpaceBackground1");
@@ -40,11 +42,10 @@ public class Game extends BasicGameState{
 	public static boolean setShip(Ship ship) {
 		if(playerOne == null) {
 			playerOne = ship;
-//			playerOne.setCoords(0, 0);
 			return false;
 		}else {
 			playerTwo = ship;
-//			playerTwo.setCoords(950, 0);
+			playerTwo.adjustCoords(950, 0);
 			return true;
 		}
 	}

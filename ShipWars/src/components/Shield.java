@@ -24,7 +24,7 @@ public class Shield extends Component{
 	public void render(Graphics g) {
 		
 		if(health > 0) {
-			sprite.draw(getX(), getY());
+			sprite.drawCentered(getX(), getY());
 		}
 		
 	}

@@ -37,33 +37,27 @@ public class Player {
 		
 		if(playerNumber == 1) {//testing purposes only
 			
-			int changeX = 0;
-			int changeY = 0;
-			
-			if(gc.getInput().isKeyPressed(Input.KEY_UP)) {
-				changeY -= SPEED;
+			if(gc.getInput().isKeyDown(Input.KEY_UP)) {
+				y -= SPEED;
 			}
 			
-			if(gc.getInput().isKeyPressed(Input.KEY_DOWN)) {
-				changeY += SPEED;
+			if(gc.getInput().isKeyDown(Input.KEY_DOWN)) {
+				y += SPEED;
 			}
 			
-			if(gc.getInput().isKeyPressed(Input.KEY_LEFT)){
-				changeX -= SPEED;
+			if(gc.getInput().isKeyDown(Input.KEY_LEFT)){
+				x -= SPEED;
 			}
 			
-			if(gc.getInput().isKeyPressed(Input.KEY_RIGHT)) {
-				changeX += SPEED;
+			if(gc.getInput().isKeyDown(Input.KEY_RIGHT)) {
+				x += SPEED;
 			}
-			
-			x += changeX;
-			y += changeY;
 			
 			x = x < 0 ? 0 : x;
 			y = y < 0 ? 0 : y;
 			
 			x = x > 1920 ? 1920 : x;
-			y = y > 1080 ? 1080 : x;
+			y = y > 1080 ? 1080 : y;
 		
 		}
 		
@@ -71,8 +65,18 @@ public class Player {
 	
 	public void render(Graphics g) {
 		
-		sprite.draw(x, y);
+		sprite.drawCentered(x, y);
 		
+	}
+	
+	public void adjustCoords(int tx, int ty) {
+		x += tx;
+		y += ty;
+	}
+	
+	public void setCoords(int newX, int newY) {
+		x = newX;
+		y = newY;
 	}
 	
 	

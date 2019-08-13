@@ -10,7 +10,6 @@ import org.newdawn.slick.Graphics;
 
 public class Ship {
 	
-	
 	private Player[] players;
 	
 	private Turret mainTurret;
@@ -29,23 +28,25 @@ public class Ship {
 		shield = s;
 		players = p;
 		
-		
 		/*
 		 * Depending on Hull that Ship has, all coords of other components besides hull need to be adjusted so they are in their proper places
 		 * relevant to the hull shape and design
 		 */
-		mainTurret.adjustCoords(hull.getTurretCoords()[0], hull.getTurretCoords()[1]);
-		eng.adjustCoords(hull.getEngineCoords()[0], hull.getEngineCoords()[1]);
-		shield.adjustCoords(hull.getShieldCoords()[0], hull.getShieldCoords()[1]);
-			
+		
+		hull.setCoords(0, 0);
+		mainTurret.setCoords(hull.getTurretCoords()[0], hull.getTurretCoords()[1]);
+		eng.setCoords(hull.getEngineCoords()[0], hull.getEngineCoords()[1]);
+		shield.setCoords(hull.getShieldCoords()[0], hull.getShieldCoords()[1]);	
+		
+		
 	}
 	
 	public void render(Graphics g) {
 		
+		hull.render(g);
 		mainTurret.render(g);
 		eng.render(g);
 		shield.render(g);
-		hull.render(g);
 		for(Player p : players) {
 			p.render(g);
 		}
@@ -83,6 +84,10 @@ public class Ship {
 		mainTurret.adjustCoords(tx, ty);
 		eng.adjustCoords(tx, ty);
 		shield.adjustCoords(tx, ty);
+		
+		for(Player p : players) {
+			p.adjustCoords(tx, ty);
+		}
 		
 	}
 	

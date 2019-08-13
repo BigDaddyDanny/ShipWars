@@ -25,8 +25,9 @@ public class Intro extends BasicGameState{
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		
 		background.draw();
-		g.drawString(GREETING, (Engine.getWidth() / 2) - ((GREETING.length() / 2) * 9), Engine.getHeight() / 2);
 		
+		g.drawString(GREETING, (1920 / 2) - ((GREETING.length() / 2) * 9), 1080 / 2);
+
 	}
 
 	@Override

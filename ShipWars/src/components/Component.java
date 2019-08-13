@@ -20,7 +20,7 @@ public abstract class Component {
 	
 	public void render(Graphics g) {
 		
-		sprite.draw(x, y);
+		sprite.drawCentered(x, y);
 		
 	}
 	
@@ -29,6 +29,11 @@ public abstract class Component {
 	public void adjustCoords(int tx, int ty) {
 		x += tx;
 		y += ty;
+	}
+	
+	public void setCoords(int newX, int newY) {
+		x = newX;
+		y = newY;
 	}
 	
 	public int getX() {

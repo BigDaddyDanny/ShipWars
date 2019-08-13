@@ -1,5 +1,6 @@
 package components;
 
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Polygon;
 
@@ -19,6 +20,10 @@ public class Hull extends Component{
 		bounds = b;
 		coords = c;
 		
+	}
+	
+	public void render(Graphics g) {
+		getSprite().draw(getX(), getY());
 	}
 	
 	public void update() {

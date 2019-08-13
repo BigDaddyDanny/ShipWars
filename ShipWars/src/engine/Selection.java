@@ -33,18 +33,18 @@ public class Selection extends BasicGameState{
 	private static final int HULL_Y = 20;
 	
 	//list of types of turrets
-	Turret[] turrets = { new Turret(Resources.getImage("BioBoomer"), "Bio Boomer", TURRET_X, TURRET_Y, 5, 2),
+	Turret[] turrets = { ComponentLoader.getTurret(0)
 	};
 	
-	Shield[] shields = {new Shield(Resources.getImage("ExampleShield"), "Example Shield", SHIELD_X, SHIELD_Y, 100, .2),
+	Shield[] shields = {ComponentLoader.getShield(0)
 			
 	};
 	
-	Engines[] engines = { new Engines(Resources.getImage("ExampleEngine"), "Example Engine", ENGINE_X, ENGINE_Y, .5)
+	Engines[] engines = { ComponentLoader.getEngine(0)
 			
 	};
 	
-	Hull[] hulls = {	new Hull(Resources.getImage("ExampleHull"), "Example Engine", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {}, HULL_X, HULL_Y, 100)
+	Hull[] hulls = { ComponentLoader.getHull(0)
 			
 	};
 	
@@ -70,7 +70,6 @@ public class Selection extends BasicGameState{
 		g.drawString("Damage: " + String.valueOf(turrets[turretCounter].getDmg()), TURRET_X, TURRET_Y + turrets[turretCounter].getSprite().getHeight() - 60);
 		g.drawString("Fire Chance: " + String.valueOf(turrets[turretCounter].getFire()), TURRET_X, TURRET_Y + turrets[turretCounter].getSprite().getHeight() - 80);
 		
-		
 		g.drawString("Health: " + String.valueOf(hulls[hullCounter].getMaxHealth()), HULL_X, HULL_Y + hulls[hullCounter].getSprite().getHeight() - 40);
 		
 		g.drawString("Health: " + String.valueOf(shields[shieldCounter].getMaxHealth()), SHIELD_X, SHIELD_Y + shields[shieldCounter].getSprite().getHeight() + 20);
@@ -83,18 +82,17 @@ public class Selection extends BasicGameState{
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int arg2) throws SlickException {
 		
-		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){//the x and y of every ship component need to be changed from the example ones to the right ones, depending on the hull and side
-			Player[] p = {new Player(10, 10, Resources.getImage("character1"))};
-			if(Game.setShip(new Ship( "temp", turrets[turretCounter], engines[engineCounter], shields[shieldCounter], hulls[hullCounter], p))) {
+		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){
+
+			if(Game.setShip(new Ship( "temp", ComponentLoader.getTurret(turretCounter), ComponentLoader.getEngine(engineCounter), 
+						ComponentLoader.getShield(shieldCounter), ComponentLoader.getHull(hullCounter), new Player[] {new Player(10, 10, Resources.getImage("character1"))} ))) {
 				s.enterState(States.GAME);
+			
 			}
 		}
-		
-		
-		
-		
-		
+	
 	}
+
 
 	@Override
 	public int getID() {
