@@ -1,6 +1,8 @@
 package engine;
 
 import org.newdawn.slick.font.*;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.XRandR.Screen;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -25,7 +27,6 @@ public class Intro extends BasicGameState{
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		
 		background.draw();
-		
 		g.drawString(GREETING, (1920 / 2) - ((GREETING.length() / 2) * 9), 1080 / 2);
 
 	}
