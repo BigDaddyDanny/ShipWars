@@ -17,6 +17,7 @@ public class Intro extends BasicGameState{
 	
 	private final Image background = Resources.getImage("SpaceBackground1");
 	private final String GREETING = "Press Enter To Begin";
+	private final Image titleImage = Resources.getImage("title");
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
@@ -28,13 +29,14 @@ public class Intro extends BasicGameState{
 		
 		background.draw();
 		g.drawString(GREETING, (1920 / 2) - ((GREETING.length() / 2) * 9), 1080 / 2);
+		g.drawImage(titleImage, Engine.getWidth()/2 - titleImage.getWidth()/2, 40);
 
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int arg2) throws SlickException {
 		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){
-			s.enterState(States.SELECTION);
+			s.enterState(States.NEW_SELECTION);
 		}
 	}
 

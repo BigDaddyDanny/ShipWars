@@ -2,6 +2,8 @@ package engine;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.ScalableGame;
@@ -54,6 +56,8 @@ public class Engine extends StateBasedGame{
         addState(new Intro());
         addState(new Game());
         addState(new Selection());
+        addState(new GabesTestScene());
+        addState(new NewSelection());
 	}
 	
 	public static int getHeight() {
@@ -62,5 +66,13 @@ public class Engine extends StateBasedGame{
 	
 	public static int getWidth() {
 		return width;
+	}
+	
+	public static int getMouseX() {
+		return Mouse.getX();
+	}
+	
+	public static int getMouseY() {
+		return height-Mouse.getY()-1;
 	}
 }

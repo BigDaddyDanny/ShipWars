@@ -19,6 +19,10 @@ public class Resources {
 			images.put("ExampleShield", loadImage("resources/shields/ExampleShield.png"));
 			images.put("ExampleEngine", loadImage("resources/engines/ExampleEngine.png"));
 			images.put("character1", loadImage("resources/characters/character1.png"));
+			images.put("title", loadImage("resources/ship_wars_title.png"));
+			images.put("upArrow", loadImage("resources/up_arrow.png"));
+			images.put("downArrow", loadImage("resources/down_arrow.png"));
+			images.put("color", loadImage("resources/color.png"));
 			
 		} catch (SlickException e) {
 			e.printStackTrace();
