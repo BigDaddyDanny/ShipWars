@@ -36,6 +36,7 @@ public class Intro extends BasicGameState{
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int arg2) throws SlickException {
 		if(gc.getInput().isKeyPressed(Input.KEY_ENTER)){
+//			s.enterState(States.SELECTION);
 			s.enterState(States.NEW_SELECTION);
 		}
 	}
