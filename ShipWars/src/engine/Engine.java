@@ -24,12 +24,13 @@ public class Engine extends StateBasedGame{
     public static void main(String [] args){
         try{
         	
-            AppGameContainer app = new AppGameContainer(new ScalableGame(new Engine(), 1920, 1080, true));
+            AppGameContainer app = new AppGameContainer(new ScalableGame(new Engine(), screenSize.width, screenSize.height, true));
             if(isFullscreen) {
             	app.setDisplayMode(screenSize.width, screenSize.height, false);
             	app.setFullscreen(true);
             	width = screenSize.width;
             	height = screenSize.height;
+            	System.out.println("Width: " + width + ", Height: " + height);
             }else {
             	app.setFullscreen(false);
             	app.setDisplayMode(width, height, false);

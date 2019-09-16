@@ -15,7 +15,9 @@ public class Resources {
 			
 			images.put("SpaceBackground1", loadImage("resources/space_background.png"));
 			images.put("BioBoomer", loadImage("resources/turrets/BioBoomer.png"));
-			images.put("ExampleHull", loadImage("resources/hulls/ExampleHull.png"));
+			images.put("greyHull", loadImage("resources/hulls/grey_hull.png"));
+			images.put("redHull", loadImage("resources/hulls/red_hull.png"));
+			images.put("blueHull", loadImage("resources/hulls/blue_hull.png"));
 			images.put("ExampleShield", loadImage("resources/shields/ExampleShield.png"));
 			images.put("ExampleEngine", loadImage("resources/engines/ExampleEngine.png"));
 			images.put("character1", loadImage("resources/characters/character1.png"));
