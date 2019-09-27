@@ -22,6 +22,10 @@ public class ComponentLoader {
 		switch(id) {
 		case 0:
 			return new Turret(Resources.getImage("BioBoomer"), "Bio Boomer", TURRET_X, TURRET_Y, 5, 2);
+		case 1:
+			return new Turret(Resources.getImage("pewPewGun"), "Pew Pew Gun", TURRET_X, TURRET_Y, 5, 2);
+		case 2:
+			return new Turret(Resources.getImage("bioBonker"), "Bio Bonker", TURRET_X, TURRET_Y, 5, 2);
 		default:
 			return new Turret(Resources.getImage("BioBoomer"), "Bio Boomer", TURRET_X, TURRET_Y, 5, 2);			
 		}
@@ -40,6 +44,10 @@ public class ComponentLoader {
 		switch(id) {
 		case 0:
 			return new Shield(Resources.getImage("ExampleShield"), "Example Shield", SHIELD_X, SHIELD_Y, 100, .2);
+		case 1:
+			return new Shield(Resources.getImage("lightShield"), "Light Shield", SHIELD_X, SHIELD_Y, 100, .2);
+		case 2:
+			return new Shield(Resources.getImage("energyShield"), "Energy Shield", SHIELD_X, SHIELD_Y, 100, .2);
 		default:
 			return new Shield(Resources.getImage("ExampleShield"), "Example Shield", SHIELD_X, SHIELD_Y, 100, .2);			
 		}
@@ -48,13 +56,13 @@ public class ComponentLoader {
 	public static Hull getHull(int id) {
 		switch(id) {
 		case 0:// in x, y format, engines -> shield -> turret
-			return new Hull(Resources.getImage("greyHull"), "Grey Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 400, 250, 150}, HULL_X, HULL_Y, 100);
+			return new Hull(Resources.getImage("greyHull"), "Grey Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 450, 250, 170}, HULL_X, HULL_Y, 100);
 
 		case 1:// in x, y format, engines -> shield -> turret
-			return new Hull(Resources.getImage("redHull"), "Red Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 400, 250, 150}, HULL_X, HULL_Y, 100);
+			return new Hull(Resources.getImage("redHull"), "Red Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 450, 250, 200}, HULL_X, HULL_Y, 100);
 
 		case 2:// in x, y format, engines -> shield -> turret
-			return new Hull(Resources.getImage("blueHull"), "Blue Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 400, 250, 150}, HULL_X, HULL_Y, 100);
+			return new Hull(Resources.getImage("blueHull"), "Blue Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 450, 250, 250}, HULL_X, HULL_Y, 100);
 		default:
 			return new Hull(Resources.getImage("greyHull"), "Grey Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {}, HULL_X, HULL_Y, 100);			
 		}

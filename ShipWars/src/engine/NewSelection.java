@@ -26,29 +26,34 @@ public class NewSelection extends BasicGameState {
 	// The 2nd and 3rd of each array is utter garbage and only serve to test name
 	// output for selection
 	private Hull[] hulls = { ComponentLoader.getHull(0), ComponentLoader.getHull(1), ComponentLoader.getHull(2) };
-	private Shield[] shields = { ComponentLoader.getShield(0),
-			new Shield(Resources.getImage("ExampleShield"), "Shield Dos", 3, 3, 100, .2),
-			new Shield(Resources.getImage("ExampleShield"), "Shield Tres", 3, 3, 100, .2) };
+	private Shield[] shields = { ComponentLoader.getShield(0), ComponentLoader.getShield(1), ComponentLoader.getShield(2) };
 	private Engines[] engines = { ComponentLoader.getEngine(0),
 			new Engines(Resources.getImage("ExampleEngine"), "Yeet Engine", 3, 3, .5),
 			new Engines(Resources.getImage("ExampleEngine"), "Fast Engine", 3, 3, .5) };
-	private Turret[] turrets = { ComponentLoader.getTurret(0),
-			new Turret(Resources.getImage("BioBoomer"), "Bio Thwacker", 3, 3, 5, 2),
-			new Turret(Resources.getImage("BioBoomer"), "Pew Pew Gun", 3, 3, 5, 2) };
+	private Turret[] turrets = { ComponentLoader.getTurret(0), ComponentLoader.getTurret(1),
+			ComponentLoader.getTurret(2) };
 	private int hullI = 0, shieldI = 0, engineI = 0, turretI = 0, mx, my;
 	private int displayBoxW;
+	private int[] hullCoords;
+	private int[] turretCoords;
+	private int[] shieldCoords;
+	private int[] engineCoords;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
 
+		hullCoords = new int[2];
+		shieldCoords = new int[2];
+		engineCoords = new int[2];
+		turretCoords = new int[2];
 		displayBoxW = Engine.getWidth() - selectionBarSize;
 
 		upArrows = new Button[boxes];
 		downArrows = new Button[boxes];
 		for (int i = 0; i < boxes; i++) {
-			upArrows[i] = new Button(Resources.getImage("upArrow"), 0, i * verticalBoxSize);
+			upArrows[i] = new Button(Resources.getImage("upArrow"), 0, i * verticalBoxSize, Resources.getImage("upArrowHover"), Resources.getImage("upArrow"));
 			downArrows[i] = new Button(Resources.getImage("downArrow"), 0,
-					((i + 1) * verticalBoxSize) - Resources.getImage("downArrow").getHeight());
+					((i + 1) * verticalBoxSize) - Resources.getImage("downArrow").getHeight(), Resources.getImage("downArrowHover"), Resources.getImage("downArrow"));
 		}
 
 	}
@@ -58,6 +63,15 @@ public class NewSelection extends BasicGameState {
 
 		mx = Engine.getMouseX();
 		my = Engine.getMouseY();
+
+		hullCoords[0] = (selectionBarSize + displayBoxW / 2) - (hulls[hullI].getSprite().getWidth() / 2);
+		hullCoords[1] = Engine.getHeight() / 2 - (hulls[hullI].getSprite().getHeight() / 2);
+		shieldCoords[0] = hullCoords[0] + hulls[hullI].getShieldCoords()[0] - shields[shieldI].getSprite().getWidth()/2;
+		shieldCoords[1] = hullCoords[1] + hulls[hullI].getShieldCoords()[1] - shields[shieldI].getSprite().getHeight()/2;
+		turretCoords[0] = hullCoords[0] + hulls[hullI].getTurretCoords()[0] - turrets[turretI].getSprite().getWidth()/2;
+		turretCoords[1] = hullCoords[1] + hulls[hullI].getTurretCoords()[1] - turrets[turretI].getSprite().getHeight()/2;
+		engineCoords[0] = hullCoords[0] + hulls[hullI].getEngineCoords()[0] - engines[engineI].getSprite().getWidth()/2;
+		engineCoords[1] = hullCoords[1] + hulls[hullI].getEngineCoords()[1] - engines[engineI].getSprite().getHeight()/2;
 
 		if (upArrows[0].isClicked(mx, my, gc)) {
 			hullI = hullI < hulls.length - 1 ? hullI + 1 : 0;
@@ -92,13 +106,13 @@ public class NewSelection extends BasicGameState {
 		BACKGROUND.draw(0, 0, Engine.getWidth(), Engine.getHeight());
 		Resources.getImage("color").draw(0, 0, selectionBarSize, Engine.getHeight());
 
-		// this just makes a comment visible inside the game, in case whoever notices
-		// the changes does not look in the code first
-		g.drawImage(hulls[hullI].getSprite(),
-				(selectionBarSize + displayBoxW / 2) - (hulls[hullI].getSprite().getWidth() / 2),
-				Engine.getHeight() / 2 - (hulls[hullI].getSprite().getHeight() / 2));
+		g.drawImage(hulls[hullI].getSprite(), hullCoords[0], hullCoords[1]);
+		g.drawImage(shields[shieldI].getSprite(), shieldCoords[0], shieldCoords[1]);
+		g.drawImage(turrets[turretI].getSprite(), turretCoords[0], turretCoords[1]);
 
 		for (int i = 0; i < boxes; i++) {
+			upArrows[i].isHovering(mx, my);
+			downArrows[i].isHovering(mx, my);
 			upArrows[i].render(g);
 			downArrows[i].render(g);
 		}
