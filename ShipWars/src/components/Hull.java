@@ -6,6 +6,8 @@ import org.newdawn.slick.geom.Polygon;
 
 public class Hull extends Component{
 	
+	public static final int[] STANDARD_SIZE = {500, 900};
+	
 	private int maxHealth;
 	private int health;
 	private Polygon bounds;
