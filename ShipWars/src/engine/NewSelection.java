@@ -16,7 +16,7 @@ import game_components.Button;
 
 public class NewSelection extends BasicGameState {
 
-	private float previewPercent = 100f;
+	private float previewPercent = 95f;
 
 	private static final Image BACKGROUND = Resources.getImage("SpaceBackground1");
 
@@ -62,6 +62,7 @@ public class NewSelection extends BasicGameState {
 					((i + 1) * VERTICAL_BOX_SIZE) - Resources.getImage("downArrow").getHeight(),
 					Resources.getImage("downArrowHover"), Resources.getImage("downArrow"));
 		}
+		done = new Button(Resources.getImage("done"), Engine.getWidth()-Resources.getImage("done").getWidth()-20, Engine.getHeight()-Resources.getImage("done").getHeight()-20, Resources.getImage("doneHover"), Resources.getImage("done"));
 
 	}
 
@@ -70,8 +71,10 @@ public class NewSelection extends BasicGameState {
 
 		mx = Engine.getMouseX();
 		my = Engine.getMouseY();
+		
+		
 
-		// TEST
+		//----------------------------TEST-------------------------------------
 		if (gc.getInput().isKeyDown(Input.KEY_LSHIFT)) {
 			if (gc.getInput().isKeyDown(Input.KEY_UP))
 				previewPercent += 1f;
@@ -80,7 +83,9 @@ public class NewSelection extends BasicGameState {
 		}
 
 		scale = (Engine.getHeight() * (0.01f * previewPercent)) / Hull.STANDARD_SIZE[1];
-		// TEST
+		//----------------------------TEST-------------------------------------
+		
+		
 
 		hullCoords[0] = (int) ((SELECTION_BAR_SIZE + displayBoxW / 2)
 				- (hulls[hullI].getSprite().getWidth() * scale / 2));
@@ -123,6 +128,9 @@ public class NewSelection extends BasicGameState {
 		if (downArrows[3].isClicked(mx, my, gc)) {
 			turretI = turretI > 0 ? turretI - 1 : turrets.length - 1;
 		}
+		if (done.isClicked(mx, my, gc)) {
+			s.enterState(States.GAME);
+		}
 
 	}
 
@@ -141,6 +149,8 @@ public class NewSelection extends BasicGameState {
 			upArrows[i].render(g);
 			downArrows[i].render(g);
 		}
+		done.isHovering(mx, my);
+		done.render(g);
 		g.drawString(hulls[hullI].getName(), 20, VERTICAL_BOX_SIZE / 2 - 10);
 		g.drawString(shields[shieldI].getName(), 20, (VERTICAL_BOX_SIZE) + VERTICAL_BOX_SIZE / 2 - 10);
 		g.drawString(engines[engineI].getName(), 20, (2 * VERTICAL_BOX_SIZE) + VERTICAL_BOX_SIZE / 2 - 10);

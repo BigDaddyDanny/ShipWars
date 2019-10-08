@@ -28,8 +28,10 @@ public class Resources {
 			images.put("title", loadImage("resources/ship_wars_title.png"));
 			images.put("upArrow", loadImage("resources/up_arrow.png"));
 			images.put("downArrow", loadImage("resources/down_arrow.png"));
+			images.put("done", loadImage("resources/done.png"));
 			images.put("upArrowHover", loadImage("resources/up_arrow_hover.png"));
 			images.put("downArrowHover", loadImage("resources/down_arrow_hover.png"));
+			images.put("doneHover", loadImage("resources/done_hover.png"));
 			images.put("color", loadImage("resources/color.png"));
 			
 		} catch (SlickException e) {
