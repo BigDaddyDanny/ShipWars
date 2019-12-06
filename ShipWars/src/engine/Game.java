@@ -17,6 +17,7 @@ public class Game extends BasicGameState{
 	private static Ship playerOne;
 	private static Ship playerTwo;
 	
+	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
 		
@@ -36,6 +37,8 @@ public class Game extends BasicGameState{
 		
 		playerOne.update(gc);
 		playerTwo.update(gc);
+		
+		
 		
 	}
 	

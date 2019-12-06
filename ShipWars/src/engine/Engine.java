@@ -13,9 +13,9 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Engine extends StateBasedGame{
 	
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private static int width = 1280;
-    private static int height = 720;
-    private static boolean isFullscreen = true;
+    private static int width = 1336;
+    private static int height = 768;
+    private static boolean isFullscreen = false;
     
     public Engine(){
         super("Ship Wars");
@@ -24,14 +24,16 @@ public class Engine extends StateBasedGame{
     public static void main(String [] args){
         try{
         	
-            AppGameContainer app = new AppGameContainer(new ScalableGame(new Engine(), screenSize.width, screenSize.height, true));
+            AppGameContainer app;
             if(isFullscreen) {
+            	app = new AppGameContainer(new ScalableGame(new Engine(), screenSize.width, screenSize.height, true));
             	app.setDisplayMode(screenSize.width, screenSize.height, false);
             	app.setFullscreen(true);
             	width = screenSize.width;
             	height = screenSize.height;
             	System.out.println("Width: " + width + ", Height: " + height);
             }else {
+            	app = new AppGameContainer(new ScalableGame(new Engine(), width, height, true));
             	app.setFullscreen(false);
             	app.setDisplayMode(width, height, false);
             }
