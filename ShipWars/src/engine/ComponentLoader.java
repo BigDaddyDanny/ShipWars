@@ -35,6 +35,12 @@ public class ComponentLoader {
 		switch(id) {
 		case 0:
 			return new Engines(Resources.getImage("ExampleEngine"), "Example Engine", ENGINE_X, ENGINE_Y, .5);
+		case 1:
+			return new Engines(Resources.getImage("fastEngine"), "Fast Engine", ENGINE_X, ENGINE_Y, .5);
+		case 2:
+			return new Engines(Resources.getImage("ionEngine"), "Ion Engine", ENGINE_X, ENGINE_Y, .5);
+		case 3:
+			return new Engines(Resources.getImage("bioEngine"), "Bio Engine", ENGINE_X, ENGINE_Y, .5);
 		default:
 			return new Engines(Resources.getImage("ExampleEngine"), "Example Engine", ENGINE_X, ENGINE_Y, .5);			
 		}
@@ -56,13 +62,13 @@ public class ComponentLoader {
 	public static Hull getHull(int id) {
 		switch(id) {
 		case 0:// in x, y format, engines -> shield -> turret
-			return new Hull(Resources.getImage("greyHull"), "Grey Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 450, 250, 170}, HULL_X, HULL_Y, 100);
+			return new Hull(Resources.getImage("greyHull"), "Grey Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 800, 250, 450, 250, 105}, HULL_X, HULL_Y, 100);
 
 		case 1:// in x, y format, engines -> shield -> turret
-			return new Hull(Resources.getImage("redHull"), "Red Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 450, 250, 200}, HULL_X, HULL_Y, 100);
+			return new Hull(Resources.getImage("redHull"), "Red Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 800, 250, 450, 250, 135}, HULL_X, HULL_Y, 100);
 
 		case 2:// in x, y format, engines -> shield -> turret
-			return new Hull(Resources.getImage("blueHull"), "Blue Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 720, 250, 450, 250, 250}, HULL_X, HULL_Y, 100);
+			return new Hull(Resources.getImage("blueHull"), "Blue Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {250, 800, 250, 450, 250, 185}, HULL_X, HULL_Y, 100);
 		default:
 			return new Hull(Resources.getImage("greyHull"), "Grey Hull", new Polygon(new float[] {0, 0, 0, 5, 5, 5, 5, 0}), new int[] {}, HULL_X, HULL_Y, 100);			
 		}

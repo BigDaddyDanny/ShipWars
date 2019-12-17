@@ -24,6 +24,9 @@ public class Resources {
 			images.put("lightShield", loadImage("resources/shields/light_shield.png"));
 			images.put("energyShield", loadImage("resources/shields/energy_shield.png"));
 			images.put("ExampleEngine", loadImage("resources/engines/ExampleEngine.png"));
+			images.put("fastEngine", loadImage("resources/engines/fastEngine.png"));
+			images.put("ionEngine", loadImage("resources/engines/IonEngine.png"));
+			images.put("bioEngine", loadImage("resources/engines/BioEngine.png"));
 			images.put("character1", loadImage("resources/characters/character1.png"));
 			images.put("title", loadImage("resources/ship_wars_title.png"));
 			images.put("upArrow", loadImage("resources/up_arrow.png"));

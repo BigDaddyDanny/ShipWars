@@ -32,9 +32,7 @@ public class NewSelection extends BasicGameState {
 	private Hull[] hulls = { ComponentLoader.getHull(0), ComponentLoader.getHull(1), ComponentLoader.getHull(2) };
 	private Shield[] shields = { ComponentLoader.getShield(0), ComponentLoader.getShield(1),
 			ComponentLoader.getShield(2) };
-	private Engines[] engines = { ComponentLoader.getEngine(0),
-			new Engines(Resources.getImage("ExampleEngine"), "Yeet Engine", 3, 3, .5),
-			new Engines(Resources.getImage("ExampleEngine"), "Fast Engine", 3, 3, .5) };
+	private Engines[] engines = { ComponentLoader.getEngine(1), ComponentLoader.getEngine(2), ComponentLoader.getEngine(3) };
 	private Turret[] turrets = { ComponentLoader.getTurret(0), ComponentLoader.getTurret(1),
 			ComponentLoader.getTurret(2) };
 	private int hullI = 0, shieldI = 0, engineI = 0, turretI = 0, mx, my;
@@ -142,6 +140,7 @@ public class NewSelection extends BasicGameState {
 		hulls[hullI].getSprite().draw(hullCoords[0], hullCoords[1], scale);
 		shields[shieldI].getSprite().draw(shieldCoords[0], shieldCoords[1], scale);
 		turrets[turretI].getSprite().draw(turretCoords[0], turretCoords[1], scale);
+		engines[engineI].getSprite().draw(engineCoords[0], engineCoords[1], scale);
 
 		for (int i = 0; i < BOXES; i++) {
 			upArrows[i].isHovering(mx, my);
