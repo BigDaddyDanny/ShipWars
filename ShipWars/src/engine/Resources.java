@@ -32,9 +32,13 @@ public class Resources {
 			images.put("upArrow", loadImage("resources/up_arrow.png"));
 			images.put("downArrow", loadImage("resources/down_arrow.png"));
 			images.put("done", loadImage("resources/done.png"));
+			images.put("join", loadImage("resources/join.png"));
+			images.put("host", loadImage("resources/host.png"));
 			images.put("upArrowHover", loadImage("resources/up_arrow_hover.png"));
 			images.put("downArrowHover", loadImage("resources/down_arrow_hover.png"));
 			images.put("doneHover", loadImage("resources/done_hover.png"));
+			images.put("joinHover", loadImage("resources/join_hover.png"));
+			images.put("hostHover", loadImage("resources/host_hover.png"));
 			images.put("color", loadImage("resources/color.png"));
 			
 		} catch (SlickException e) {
