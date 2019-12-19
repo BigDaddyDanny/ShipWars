@@ -19,17 +19,18 @@ public class Intro extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
 
-		join = new Button(Resources.getImage("join"), Engine.getWidth()/2-350, Engine.getHeight()/2, Resources.getImage("joinHover"),
-				Resources.getImage("joinHover"));
-		host = new Button(Resources.getImage("host"), Engine.getWidth()/2+100, Engine.getHeight()/2, Resources.getImage("hostHover"),
-				Resources.getImage("hostHover"));
+		int spacing = 100;
+		join = new Button(Resources.getImage("join"), (Engine.getWidth()/2-Resources.getImage("join").getWidth())-spacing/2, Engine.getHeight()/2, Resources.getImage("joinHover"),
+				Resources.getImage("join"));
+		host = new Button(Resources.getImage("host"), (Engine.getWidth()/2)+spacing/2, Engine.getHeight()/2, Resources.getImage("hostHover"),
+				Resources.getImage("host"));
 
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
-		my = Engine.getMouseX();
-		mx = Engine.getMouseY();
+		mx = Engine.getMouseX();
+		my = Engine.getMouseY();
 		
 		if (join.isClicked(mx, my, gc)) {
 			s.enterState(States.NEW_SELECTION);
@@ -47,6 +48,8 @@ public class Intro extends BasicGameState {
 		g.drawImage(titleImage, Engine.getWidth() / 2 - titleImage.getWidth() / 2, 40);
 		join.render(g);
 		host.render(g);
+		
+		g.drawString("X: " + mx + ", Y: " + my, 10, 10);
 
 	}
 

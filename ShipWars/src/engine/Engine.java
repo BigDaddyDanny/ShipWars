@@ -61,6 +61,7 @@ public class Engine extends StateBasedGame{
         addState(new Selection());
         addState(new GabesTestScene());
         addState(new NewSelection());
+        enterState(States.INTRO);
 	}
 	
 	public static int getHeight() {
