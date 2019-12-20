@@ -51,8 +51,8 @@ public class Button {
 		current.draw(x, y, width, height);
 	}
 
-	public boolean isHovering(int mx, int my) {
-		if((mx > x && mx < x+width) && (my > y && my < y+height)) {
+	public boolean isHovering() {
+		if((ButtonListener.x > x && ButtonListener.x < x+width) && (ButtonListener.y > y && ButtonListener.y < y+height)) {
 			current = hovered;
 			return true;
 		} else {
@@ -61,8 +61,8 @@ public class Button {
 		}
 	}
 	
-	public boolean isClicked(int mx, int my, GameContainer gc) {
-		return isHovering(mx, my) && gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON);
+	public boolean isClicked(GameContainer gc) {
+		return isHovering() && gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON);
 	}
 	
 }

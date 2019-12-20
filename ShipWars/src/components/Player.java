@@ -69,6 +69,13 @@ public class Player {
 		
 	}
 	
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	
 	public void adjustCoords(int tx, int ty) {
 		x += tx;
 		y += ty;

@@ -12,7 +12,6 @@ import game_components.Button;
 public class GabesTestScene extends BasicGameState{
 
 	Button button;
-	int mx, my;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
@@ -24,17 +23,13 @@ public class GabesTestScene extends BasicGameState{
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delts) throws SlickException {
 		
-		mx = Mouse.getX();
-		my = Engine.getHeight() - Mouse.getY()-1;
-		
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		
 		button.render(g);
-		g.drawString("X: " + mx + ", Y: " + my, 10, 10);
-		if(button.isClicked(mx, my, gc)) g.drawString("Click", 10, 30);
+		if(button.isClicked(gc)) g.drawString("Click", 10, 30);
 		
 	}
 	

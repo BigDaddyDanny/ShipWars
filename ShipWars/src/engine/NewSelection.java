@@ -35,7 +35,7 @@ public class NewSelection extends BasicGameState {
 	private Engines[] engines = { ComponentLoader.getEngine(1), ComponentLoader.getEngine(2), ComponentLoader.getEngine(3) };
 	private Turret[] turrets = { ComponentLoader.getTurret(0), ComponentLoader.getTurret(1),
 			ComponentLoader.getTurret(2) };
-	private int hullI = 0, shieldI = 0, engineI = 0, turretI = 0, mx, my;
+	private int hullI = 0, shieldI = 0, engineI = 0, turretI = 0;
 	private int displayBoxW;
 	private int[] hullCoords;
 	private int[] turretCoords;
@@ -67,11 +67,6 @@ public class NewSelection extends BasicGameState {
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 
-		mx = Engine.getMouseX();
-		my = Engine.getMouseY();
-		
-		
-
 		//----------------------------TEST-------------------------------------
 		if (gc.getInput().isKeyDown(Input.KEY_LSHIFT)) {
 			if (gc.getInput().isKeyDown(Input.KEY_UP))
@@ -101,32 +96,32 @@ public class NewSelection extends BasicGameState {
 		engineCoords[1] = (int) (hullCoords[1] + hulls[hullI].getEngineCoords()[1] * scale
 				- engines[engineI].getSprite().getHeight() * scale / 2);
 
-		if (upArrows[0].isClicked(mx, my, gc)) {
+		if (upArrows[0].isClicked(gc)) {
 			hullI = hullI < hulls.length - 1 ? hullI + 1 : 0;
 		}
-		if (upArrows[1].isClicked(mx, my, gc)) {
+		if (upArrows[1].isClicked(gc)) {
 			shieldI = shieldI < shields.length - 1 ? shieldI + 1 : 0;
 		}
-		if (upArrows[2].isClicked(mx, my, gc)) {
+		if (upArrows[2].isClicked(gc)) {
 			engineI = engineI < engines.length - 1 ? engineI + 1 : 0;
 		}
-		if (upArrows[3].isClicked(mx, my, gc)) {
+		if (upArrows[3].isClicked(gc)) {
 			turretI = turretI < turrets.length - 1 ? turretI + 1 : 0;
 		}
 
-		if (downArrows[0].isClicked(mx, my, gc)) {
+		if (downArrows[0].isClicked(gc)) {
 			hullI = hullI > 0 ? hullI - 1 : hulls.length - 1;
 		}
-		if (downArrows[1].isClicked(mx, my, gc)) {
+		if (downArrows[1].isClicked(gc)) {
 			shieldI = shieldI > 0 ? shieldI - 1 : shields.length - 1;
 		}
-		if (downArrows[2].isClicked(mx, my, gc)) {
+		if (downArrows[2].isClicked(gc)) {
 			engineI = engineI > 0 ? engineI - 1 : engines.length - 1;
 		}
-		if (downArrows[3].isClicked(mx, my, gc)) {
+		if (downArrows[3].isClicked(gc)) {
 			turretI = turretI > 0 ? turretI - 1 : turrets.length - 1;
 		}
-		if (done.isClicked(mx, my, gc)) {
+		if (done.isClicked(gc)) {
 			s.enterState(States.GAME);
 		}
 
@@ -143,12 +138,9 @@ public class NewSelection extends BasicGameState {
 		engines[engineI].getSprite().draw(engineCoords[0], engineCoords[1], scale);
 
 		for (int i = 0; i < BOXES; i++) {
-			upArrows[i].isHovering(mx, my);
-			downArrows[i].isHovering(mx, my);
 			upArrows[i].render(g);
 			downArrows[i].render(g);
 		}
-		done.isHovering(mx, my);
 		done.render(g);
 		g.drawString(hulls[hullI].getName(), 20, VERTICAL_BOX_SIZE / 2 - 10);
 		g.drawString(shields[shieldI].getName(), 20, (VERTICAL_BOX_SIZE) + VERTICAL_BOX_SIZE / 2 - 10);
