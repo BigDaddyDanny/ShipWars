@@ -13,26 +13,36 @@ public class Connection {
 	private static PrintWriter out;
 	private static BufferedReader in;
 
-	public static void host(int port) throws IOException {
-		if (in == null) {
-			System.out.println("YEET!!!!");
-			server = new ServerSocket(port);
-			System.out.println("1");
-			client = server.accept();
-			System.out.println("2");
-			out = new PrintWriter(client.getOutputStream(), true);
-			System.out.println("3");
-			in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			System.out.println("4");
+	public static boolean host(int port) {
+		try {
+			if (in == null) {
+				System.out.println("YEET!!!!");
+				server = new ServerSocket(port);
+				System.out.println("1");
+				client = server.accept();
+				System.out.println("2");
+				out = new PrintWriter(client.getOutputStream(), true);
+				System.out.println("3");
+				in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+				System.out.println("4");
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 
-	public static void connect(String ip, int port) throws IOException {
-		if (in == null) {
-			System.out.println("YEET!!!!");
-			client = new Socket(ip, port);
-			out = new PrintWriter(client.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+	public static boolean connect(String ip, int port) {
+		try {
+			if (in == null) {
+				System.out.println("YEET!!!!");
+				client = new Socket(ip, port);
+				out = new PrintWriter(client.getOutputStream(), true);
+				in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 
